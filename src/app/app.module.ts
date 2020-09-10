@@ -1,16 +1,38 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
+
+import { HeaderComponent } from './header/header.component';
+
+import { CommonModule } from '@angular/common';
+
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
+
+
+
+import { AppRoutingModule } from './app-routing.module';
+
+import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core.module';
+import { LoggingService } from './logging.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    CommonModule,
+    HttpClientModule,
+    AppRoutingModule,
+
+    SharedModule,
+    CoreModule,
+
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [LoggingService]
 })
-export class AppModule { }
+export class AppModule {}
